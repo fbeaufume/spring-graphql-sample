@@ -12,3 +12,4 @@ logging.level:
   ROOT: INFO
 #  org.springframework: DEBUG
 #  org.hibernate: DEBUG
+#  graphql: DEBUG

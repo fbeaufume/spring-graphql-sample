@@ -1,0 +1,45 @@
+type Address {
+    id: ID!
+    street: String
+    city: String
+    country: String
+}
+
+type Author {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    address: Address
+    books: [Book]
+}
+
+type Book {
+    id: ID!
+    title: String!
+    language: String!
+    authors: [Author]!
+    editions: [Edition]
+}
+
+type Editor {
+    id: ID!
+    name: String!
+    address : Address
+    editions: [Edition]
+}
+
+type Edition {
+    id: ID!
+    isbn: String!
+    # TODO FBE add date support
+    #date: Date!
+    book: Book!
+    editor: Editor!
+}
+
+# Root query of the application
+type Query {
+    # TODO FBE add pagination support
+    #books(page: Int, size: Int): [Book]
+    books: [Book]
+}
