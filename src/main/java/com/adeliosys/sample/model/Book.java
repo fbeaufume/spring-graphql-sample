@@ -1,9 +1,7 @@
 package com.adeliosys.sample.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,11 +14,15 @@ public class Book {
 
     private String language;
 
+    private String isbn;
+
+    private Date date;
+
     @ManyToMany(mappedBy = "books")
     private List<Author> authors;
 
-    @OneToMany(mappedBy = "book")
-    private List<Edition> editions;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Editor editor;
 
     public Long getId() {
         return id;
@@ -46,6 +48,22 @@ public class Book {
         this.language = language;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public List<Author> getAuthors() {
         return authors;
     }
@@ -54,11 +72,11 @@ public class Book {
         this.authors = authors;
     }
 
-    public List<Edition> getEditions() {
-        return editions;
+    public Editor getEditor() {
+        return editor;
     }
 
-    public void setEditions(List<Edition> editions) {
-        this.editions = editions;
+    public void setEditor(Editor editor) {
+        this.editor = editor;
     }
 }

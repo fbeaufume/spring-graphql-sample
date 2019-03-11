@@ -15,7 +15,7 @@ public class Editor {
     private Address address;
 
     @OneToMany(mappedBy = "editor")
-    private List<Edition> editions;
+    private List<Book> books;
 
     public Long getId() {
         return id;
@@ -41,11 +41,11 @@ public class Editor {
         this.address = address;
     }
 
-    public List<Edition> getEditions() {
-        return editions;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setEditions(List<Edition> editions) {
-        this.editions = editions;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

@@ -1,23 +1,23 @@
 INSERT INTO address (id, street, city, country) VALUES
-  (1001, '1380 Hammond Street', 'Bangor, ME 04401', 'USA'),
-  (1002, '1745 Broadway', 'New York, NY 10019', 'USA'),
-  (1003, '1230 Avenue of the Americas, 10th F', 'New York, NY 10020', 'USA');
-
-INSERT INTO author (id, first_name, last_name, address_id) VALUES
-  (2001, 'Stephen', 'King', 1001);
-
-INSERT INTO book (id, title, language) VALUES
-  (3001, 'Carrie', 'en'),
-  (3002, 'Dreamcatcher', 'en');
-
-INSERT INTO author_books (authors_id, books_id) VALUES
-  (2001, 3001),
-  (2001, 3002);
+  (4001, '1380 Hammond Street', 'Bangor, ME 04401', 'USA'),
+  (4002, '1745 Broadway', 'New York, NY 10019', 'USA'),
+  (4003, '1230 Avenue of the Americas, 10th F', 'New York, NY 10020', 'USA');
 
 INSERT INTO editor (id, name, address_id) VALUES
-  (4001, 'Doubleday', 1002),
-  (4002, 'Scribner', 1003);
+  (3001, 'Doubleday', 4002),
+  (3002, 'Scribner', 4003);
 
-INSERT INTO edition (id, date, isbn, book_id, editor_id) VALUES
-  (5001, {ts '1974-04-05 00:00:00.00'}, '0385086954', 3001, 4001),
-  (5002, {ts '2001-02-20 00:00:00.00'}, '978-0-743-21138-3', 3002, 4002);
+INSERT INTO book (id, title, language, isbn, date, editor_id) VALUES
+  (1001, 'Carrie', 'en', '0385086954', {ts '1974-04-05 00:00:00.00'}, 3001),
+  (1002, 'Pet Sematary', 'en', '978-0-385-18244-7', {ts '1983-11-14 00:00:00.00'}, 3001),
+  (1003, 'Dreamcatcher', 'en', '978-0-743-21138-3', {ts '2001-02-20 00:00:00.00'}, 3002),
+  (1004, 'Under the Dome', 'en', '978-1-439-14850-1', {ts '2009-11-10 00:00:00.00'}, 3002);
+
+INSERT INTO author (id, first_name, last_name, address_id) VALUES
+  (2001, 'Stephen', 'King', 4001);
+
+INSERT INTO author_books (authors_id, books_id) VALUES
+  (2001, 1001),
+  (2001, 1002),
+  (2001, 1003),
+  (2001, 1004);
