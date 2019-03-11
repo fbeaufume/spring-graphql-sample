@@ -2,13 +2,20 @@
 
 This is a sample GraphQL backend based on Spring Boot.
 
+## Features
+
 Uses a simple library oriented domain model:
 
 ![Application domain model](doc/domain-model.png)
 
-Uses an embedded in-memory H2 database.
+The application embeds GraphiQL a GraphQL client UI, for easy querying.
 
-Run with `mvn spring-boot:run`.
+No external database is requires as the application uses an embedded in-memory H2 database.
+
+## Usage
+
+As usual run with `mvn spring-boot:run` (or `mvn package` then
+`java -jar target/spring-graphql-sample.jar`).
 
 Useful URL:
 - http://localhost:8080/h2-console/ the H2 web console
@@ -16,7 +23,7 @@ Useful URL:
 - http://localhost:8080/graphql?query=%7Bbooks%7Bid%20title%7D%7D a sample query
 - http://localhost:8080/graphiql the GraphiQL client UI
 
-Sample GraphiQL request:
+Sample GraphQL request:
 ```
 {
   books {
@@ -26,10 +33,12 @@ Sample GraphiQL request:
 }
 ````
 
+## Next steps
 
 Not yet implemented:
-- Add pagination support
-- Add date support (see the Edition entity)
+- Support lazy relations
+- Support pagination
+- Support date (see the Edition entity)
 - Add mutations
 - Add other queries
 - Add unit tests
