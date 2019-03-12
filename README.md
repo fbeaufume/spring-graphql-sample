@@ -8,9 +8,14 @@ Uses a simple library oriented domain model:
 
 ![Application domain model](doc/domain-model.png)
 
-The application embeds GraphiQL a GraphQL client UI, for easy querying.
+GraphQL features:
+- A single GraphQL schema in `src/main/resources/library.graphqls`
+- Several basic queries on books, authors and editors
+- The application embeds GraphiQL, a GraphQL client UI, for easy querying
 
 No external database is requires as the application uses an embedded in-memory H2 database.
+
+The business data are in `src/main/resources/data.sql`
 
 ## Usage
 
@@ -40,7 +45,6 @@ Not yet implemented:
 - Support lazy relations
 - Support pagination
 - Support enumeration
-- Support date (see the Edition entity)
+- Support date
 - Add mutations
-- Add other queries
 - Add unit tests

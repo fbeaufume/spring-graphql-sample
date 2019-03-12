@@ -16,10 +16,7 @@ type Author {
 type Book {
     id: ID!
     title: String!
-    language: String!
     isbn: String!
-    # TODO FBE add date support
-    #date: Date!
     authors: [Author]!
     editor: Editor!
 }
@@ -31,9 +28,10 @@ type Editor {
     books: [Book]
 }
 
-# Root query of the application
 type Query {
     books: [Book]
-    # TODO FBE add pagination support
-    #books(page: Int, size: Int): [Book]
+
+    authors: [Author]
+
+    editors: [Editor]
 }
