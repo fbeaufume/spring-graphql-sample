@@ -18,10 +18,11 @@ As usual run with `mvn spring-boot:run` (or `mvn package` then
 `java -jar target/spring-graphql-sample.jar`).
 
 Useful URL:
-- http://localhost:8080/h2-console/ the H2 web console
+- http://localhost:8080/ homepage of the application, contains the next links
 - http://localhost:8080/graphql/schema.json the GraphQL schema of the application
-- http://localhost:8080/graphql?query=%7Bbooks%7Bid%20title%7D%7D a sample query
+- http://localhost:8080/graphql?query=%7Bbooks%7Bid%20title%7D%7D a sample GraphQL query
 - http://localhost:8080/graphiql the GraphiQL client UI
+- http://localhost:8080/h2-console/ the H2 web console
 
 Sample GraphQL request:
 ```
@@ -38,6 +39,7 @@ Sample GraphQL request:
 Not yet implemented:
 - Support lazy relations
 - Support pagination
+- Support enumeration
 - Support date (see the Edition entity)
 - Add mutations
 - Add other queries
