@@ -11,11 +11,12 @@ Uses a simple library oriented domain model:
 GraphQL features:
 - A single GraphQL schema in `src/main/resources/library.graphqls`
 - Several basic queries on books, authors and editors
+- A parameterized query on books
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
 
 No external database is requires as the application uses an embedded in-memory H2 database.
 
-The business data are in `src/main/resources/data.sql`
+The business data are in `src/main/resources/data.sql`.
 
 ## Usage
 
@@ -29,15 +30,26 @@ Useful URL:
 - http://localhost:8080/graphiql the GraphiQL client UI
 - http://localhost:8080/h2-console/ the H2 web console
 
-Sample GraphQL request:
+Sample GraphQL queries:
 ```
 {
-  books {
+  authors {
     id
-    title
+    firstName
+    lastName
   }
 }
-````
+```
+
+```
+{
+  booksByLanguage(language:"FR") {
+    id
+    title
+    isbn
+  }
+}
+```
 
 ## Next steps
 

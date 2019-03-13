@@ -28,10 +28,9 @@ public class Query implements GraphQLQueryResolver {
         return bookRepository.findAll();
     }
 
-    // TODO FBE support query with enum
-    /*public List<Book> getBooksByLanguage(String language) {
+    public List<Book> getBooksByLanguage(String language) {
         return bookRepository.findByLanguage(language);
-    }//*/
+    }
 
     public List<Author> getAuthors() {
         return authorRepository.findAll();
