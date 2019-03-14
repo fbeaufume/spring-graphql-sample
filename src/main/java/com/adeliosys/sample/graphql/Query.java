@@ -8,6 +8,8 @@ import com.adeliosys.sample.repository.BookRepository;
 import com.adeliosys.sample.repository.EditorRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -28,6 +30,11 @@ public class Query implements GraphQLQueryResolver {
         return bookRepository.findAll();
     }
 
+    public Page<Book> getBooks(int page, int size) {
+        // Returning a Page instead of a List is supported
+        return bookRepository.findAll(PageRequest.of(page, size));
+    }
+
     public List<Book> getBooksByLanguage(String language) {
         return bookRepository.findByLanguage(language);
     }
@@ -35,11 +42,6 @@ public class Query implements GraphQLQueryResolver {
     public List<Author> getAuthors() {
         return authorRepository.findAll();
     }
-
-    // TODO FBE support pagination
-    /*public List<Book> getBooks(int page, int size) {
-        return bookRepository.findAll(PageRequest.of(page, size)).get().collect(Collectors.toList());
-    }//*/
 
     public List<Editor> getEditors() {
         return editorRepository.findAll();

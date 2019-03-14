@@ -30,6 +30,7 @@ type Editor {
 
 type Query {
     books: [Book]
+    books(page: Int, size: Int): [Book]
     booksByLanguage(language: String): [Book]
 
     authors: [Author]
