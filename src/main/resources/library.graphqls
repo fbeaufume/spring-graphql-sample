@@ -1,4 +1,5 @@
-#scalar Date
+scalar Date
+
 type Address {
     id: ID!
     street: String
@@ -18,6 +19,7 @@ type Book {
     id: ID!
     title: String!
     isbn: String!
+    date: Date!,
     authors: [Author]!
     editor: Editor!
 }
