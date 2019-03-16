@@ -23,9 +23,19 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <graphql-starter.version>5.0.2</graphql-starter.version>
-        <graphql-tools.version>5.2.4</graphql-tools.version>
+
+        <graphql-starter.version>5.7.0</graphql-starter.version>
+        <!-- GraphQL Java Tools 5.4+ requires Kotlin 1.3 but Spring Boot 2.1 brings Kotlin 1.2. Spring Boot 2.2 will bring Kotlin 1.3 -->
+        <kotlin.version>1.3.10</kotlin.version>
     </properties>
+
+    <repositories>
+        <!-- JCenter gets GraphQL Java Kickstart releases faster than Maven Central, uncomment if needed -->
+        <!--<repository>
+            <id>jcenter</id>
+            <url>http://jcenter.bintray.com/</url>
+        </repository>-->
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -33,19 +43,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- GraphQL -->
+        <!-- GraphQL for Spring Boot -->
         <dependency>
-            <groupId>com.graphql-java</groupId>
+            <groupId>com.graphql-java-kickstart</groupId>
             <artifactId>graphql-spring-boot-starter</artifactId>
             <version>${graphql-starter.version}</version>
         </dependency>
+
+        <!-- GraphiQL, a GraphQL client UI -->
         <dependency>
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphql-java-tools</artifactId>
-            <version>${graphql-tools.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.graphql-java</groupId>
+            <groupId>com.graphql-java-kickstart</groupId>
             <artifactId>graphiql-spring-boot-starter</artifactId>
             <version>${graphql-starter.version}</version>
         </dependency>

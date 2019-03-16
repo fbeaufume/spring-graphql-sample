@@ -51,7 +51,7 @@ Sample GraphQL queries:
 
 ```
 {
-  books(page:0, size:3) {
+  booksByPage(page:0, size:3) {
     id
     title
     isbn
@@ -68,6 +68,14 @@ Sample GraphQL queries:
   }
 }
 ```
+
+## Issues
+
+Summary of issues met during development:
+- Dates are not directly supported by GraphQL, some coding or third party lib is required
+- LazyInitializationException when loading a lazy JPA relations, even when in session-per-request
+- Upgrading from GraphQL Java Kickstart 5.0.2 to 5.7.0 was more complex than expected
+  (different groupId, errors at application startup, GraphQL Java Tools not explicitly needed anymore)
 
 ## Next steps
 

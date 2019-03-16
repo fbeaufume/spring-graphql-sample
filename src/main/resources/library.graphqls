@@ -1,3 +1,4 @@
+#scalar Date
 type Address {
     id: ID!
     street: String
@@ -30,7 +31,7 @@ type Editor {
 
 type Query {
     books: [Book]
-    books(page: Int, size: Int): [Book]
+    booksByPage(page: Int, size: Int): [Book]
     booksByLanguage(language: String): [Book]
 
     authors: [Author]
