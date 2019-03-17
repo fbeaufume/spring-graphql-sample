@@ -21,6 +21,7 @@ GraphQL features:
 - Several basic queries on books, authors and editors
 - A couple parameterized query on books, including pagination
 - Dates support
+- A mutation to create authors
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
 
 No external database is requires as the application uses an embedded in-memory H2 database.
@@ -39,7 +40,7 @@ Useful URL:
 - http://localhost:8080/graphiql the GraphiQL client UI
 - http://localhost:8080/h2-console/ the H2 web console
 
-Sample GraphQL queries:
+Sample GraphQL queries (can be copy/pasted in GraphiQL):
 ```
 {
   authors {
@@ -70,6 +71,16 @@ Sample GraphQL queries:
 }
 ```
 
+And a mutation:
+
+```
+mutation {
+  createAuthor(firstName: "John", lastName: "Doe") {
+    id
+  }
+}
+```
+
 ## Issues
 
 Summary of issues met during development:
@@ -83,5 +94,4 @@ Summary of issues met during development:
 Not yet implemented:
 - Support lazy relations
 - Support enumeration
-- Add mutations
 - Add unit tests

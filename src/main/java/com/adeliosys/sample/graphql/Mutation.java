@@ -1,0 +1,25 @@
+package com.adeliosys.sample.graphql;
+
+import com.adeliosys.sample.model.Author;
+import com.adeliosys.sample.repository.AuthorRepository;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@SuppressWarnings("unused")
+@Component
+public class Mutation implements GraphQLMutationResolver {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Mutation.class);
+
+    @Autowired
+    private AuthorRepository authorRepository;
+
+    public Author createAuthor(String firstName, String lastName) {
+        LOGGER.info("Executing 'createAuthor'");
+        long id = authorRepository.getMaxId() + 1;
+        return authorRepository.save(new Author(id, firstName, lastName));
+    }
+}
