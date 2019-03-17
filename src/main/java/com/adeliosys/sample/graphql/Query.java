@@ -23,13 +23,18 @@ public class Query implements GraphQLQueryResolver {
     private static final Logger LOGGER = LoggerFactory.getLogger(Query.class);
 
     @Autowired
-    private BookRepository bookRepository;
-
-    @Autowired
     private AuthorRepository authorRepository;
 
     @Autowired
+    private BookRepository bookRepository;
+
+    @Autowired
     private EditorRepository editorRepository;
+
+    public List<Author> getAuthors() {
+        LOGGER.info("Executing 'getAuthors'");
+        return authorRepository.findAll();
+    }
 
     public List<Book> getBooks() {
         LOGGER.info("Executing 'getBooks'");
@@ -45,11 +50,6 @@ public class Query implements GraphQLQueryResolver {
     public List<Book> getBooksByLanguage(String language) {
         LOGGER.info("Executing 'getBooksByLanguage'");
         return bookRepository.findByLanguage(language);
-    }
-
-    public List<Author> getAuthors() {
-        LOGGER.info("Executing 'getAuthors'");
-        return authorRepository.findAll();
     }
 
     public List<Editor> getEditors() {

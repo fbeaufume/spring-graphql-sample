@@ -18,10 +18,10 @@ Uses a simple library oriented domain model:
 
 GraphQL features:
 - A single GraphQL schema in `src/main/resources/library.graphqls`
-- Several basic queries on books, authors and editors
-- A couple parameterized query on books, including pagination
+- Several basic queries on authors, books and editors
+- A couple parameterized queries on books, including pagination
 - Dates support
-- A mutation to create authors
+- Some mutations on authors and books
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
 
 No external database is requires as the application uses an embedded in-memory H2 database.
@@ -40,7 +40,7 @@ Useful URL:
 - http://localhost:8080/graphiql the GraphiQL client UI
 - http://localhost:8080/h2-console/ the H2 web console
 
-Sample GraphQL queries (can be copy/pasted in GraphiQL):
+Sample GraphQL queries and mutations (can be copy/pasted in GraphiQL):
 ```
 {
   authors {
@@ -63,7 +63,7 @@ Sample GraphQL queries (can be copy/pasted in GraphiQL):
 
 ```
 {
-  booksByLanguage(language:"FR") {
+  booksByLanguage(language:"EN") {
     id
     title
     isbn
@@ -71,13 +71,17 @@ Sample GraphQL queries (can be copy/pasted in GraphiQL):
 }
 ```
 
-And a mutation:
-
 ```
 mutation {
   createAuthor(firstName: "John", lastName: "Doe") {
     id
   }
+}
+```
+
+```
+mutation {
+  updateBook(id: 1001, title: "Some title")
 }
 ```
 

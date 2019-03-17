@@ -2,6 +2,7 @@ package com.adeliosys.sample.graphql;
 
 import com.adeliosys.sample.model.Author;
 import com.adeliosys.sample.repository.AuthorRepository;
+import com.adeliosys.sample.repository.BookRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +18,23 @@ public class Mutation implements GraphQLMutationResolver {
     @Autowired
     private AuthorRepository authorRepository;
 
+    @Autowired
+    private BookRepository bookRepository;
+
     public Author createAuthor(String firstName, String lastName) {
         LOGGER.info("Executing 'createAuthor'");
         long id = authorRepository.getMaxId() + 1;
         return authorRepository.save(new Author(id, firstName, lastName));
+    }
+
+    public boolean updateBook(Long id, String title) {
+        LOGGER.info("Executing 'updateBook'");
+        return bookRepository.findById(id)
+                .map(b -> {
+                    b.setTitle(title);
+                    bookRepository.save(b);
+                    return b;
+                })
+                .isPresent();
     }
 }
