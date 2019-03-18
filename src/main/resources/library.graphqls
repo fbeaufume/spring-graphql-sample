@@ -34,8 +34,7 @@ type Editor {
 type Query {
     authors: [Author]
 
-    books: [Book]
-    booksByPage(page: Int, size: Int): [Book]
+    books(page: Int = 0, size: Int = 3): [Book]
     booksByLanguage(language: String): [Book]
 
     editors: [Editor]

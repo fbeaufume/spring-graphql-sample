@@ -36,13 +36,8 @@ public class Query implements GraphQLQueryResolver {
         return authorRepository.findAll();
     }
 
-    public List<Book> getBooks() {
+    public Page<Book> getBooks(int page, int size) {
         LOGGER.info("Executing 'getBooks'");
-        return bookRepository.findAll();
-    }
-
-    public Page<Book> getBooksByPage(int page, int size) {
-        LOGGER.info("Executing 'getBooksByPage'");
         // Returning a Page instead of a List is supported
         return bookRepository.findAll(PageRequest.of(page, size));
     }

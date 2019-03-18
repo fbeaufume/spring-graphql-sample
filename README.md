@@ -18,10 +18,9 @@ Uses a simple library oriented domain model:
 
 GraphQL features:
 - A single GraphQL schema in `src/main/resources/library.graphqls`
-- Several basic queries on authors, books and editors
-- A couple parameterized queries on books, including pagination
+- Queries with or without parameters and default values
+- Mutations
 - Dates support
-- Some mutations on authors and books
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
 
 No external database is requires as the application uses an embedded in-memory H2 database.
@@ -53,7 +52,7 @@ Sample GraphQL queries and mutations (can be copy/pasted in GraphiQL):
 
 ```
 {
-  booksByPage(page:0, size:3) {
+  books(page:0, size:3) {
     id
     title
     isbn
@@ -98,4 +97,4 @@ Summary of issues met during development:
 Not yet implemented:
 - Support lazy relations
 - Support enumeration
-- Add unit tests
+- Add automated tests
