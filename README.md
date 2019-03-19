@@ -88,9 +88,13 @@ mutation {
 
 Summary of issues met during development:
 - Dates are not directly supported by GraphQL, some coding or third party lib is required
-- LazyInitializationException when loading a lazy JPA relations, even when in session-per-request
+- LazyInitializationException when loading a lazy JPA relations, see
+  https://stackoverflow.com/questions/48037601/lazyinitializationexception-with-graphql-spring,
+  even when in session-per-request
 - Upgrading from GraphQL Java Kickstart 5.0.2 to 5.7.0 was more complex than expected
-  (different groupId, errors at application startup, GraphQL Java Tools not explicitly needed anymore)
+  (different groupId, Maven Central vs JCenter confusion, GraphQL Java Tools not explicitly needed anymore)
+- Applications initialization with GraphQL Java Kickstart 5.7.0 logs errors, but this does
+  not seem to prevent the application from working correctly
 
 ## Next steps
 
