@@ -18,6 +18,7 @@ type Author {
 type Book {
     id: ID!
     title: String!
+    language: String!
     isbn: String!
     date: Date!,
     authors: [Author]!
