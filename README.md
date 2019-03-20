@@ -22,6 +22,7 @@ GraphQL features:
 - Mutations
 - Dates support
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
+- A Postman configuration file in `postman`
 
 No external database is requires as the application uses an embedded in-memory H2 database.
 
