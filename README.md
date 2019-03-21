@@ -22,6 +22,7 @@ GraphQL features:
 - Mutations
 - Dates support
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
+- Automated tests of queries and mutations
 - A Postman configuration file in `postman`
 
 No external database is requires as the application uses an embedded in-memory H2 database.
@@ -89,17 +90,20 @@ mutation {
 
 Summary of issues met during development:
 - Dates are not directly supported by GraphQL, some coding or third party lib is required
-- LazyInitializationException when loading a lazy JPA relations, see
-  https://stackoverflow.com/questions/48037601/lazyinitializationexception-with-graphql-spring,
-  even when in session-per-request
 - Upgrading from GraphQL Java Kickstart 5.0.2 to 5.7.0 was more complex than expected
   (different groupId, Maven Central vs JCenter confusion, GraphQL Java Tools not explicitly needed anymore)
-- Applications initialization with GraphQL Java Kickstart 5.7.0 logs errors, but this does
+- Application initialization with GraphQL Java Kickstart 5.7.0 logs errors, but this does
   not seem to prevent the application from working correctly
+- Spring initialization error during tests unless graphql.servlet.websocket.enabled=false
+- Server-side integration tests using MockMvc are not supported by GraphQL Java,
+  but TestRestTemplate is ok
+- Lazy loading of JPA relations is not supported since the DispatcherServlet (that uses
+  OpenEntityManagerInViewInterceptor to implement the session-per-request pattern)
+  of Spring is not used by GraphQL Java, see https://stackoverflow.com/questions/48037601/lazyinitializationexception-with-graphql-spring
+  for alternatives
 
 ## Next steps
 
 Not yet implemented:
 - Support lazy relations
 - Support enumeration
-- Add automated tests
