@@ -21,6 +21,7 @@ GraphQL features:
 - Queries with or without parameters and default values
 - Mutations
 - Dates support
+- JPA relations lazy loading support
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
 - Automated tests of queries and mutations
 - A Postman configuration file in `postman`
@@ -58,16 +59,17 @@ Sample GraphQL queries and mutations (can be copy/pasted in GraphiQL):
     id
     title
     isbn
-  }
-}
-```
-
-```
-{
-  booksByLanguage(language:"EN") {
-    id
-    title
-    isbn
+    language
+    editor {
+      id
+      name
+      address {
+        id
+        street
+        city
+        country
+      }
+    }
   }
 }
 ```
@@ -97,13 +99,12 @@ Summary of issues met during development:
 - Spring initialization error during tests unless graphql.servlet.websocket.enabled=false
 - Server-side integration tests using MockMvc are not supported by GraphQL Java,
   but TestRestTemplate is ok
-- Lazy loading of JPA relations is not supported since the DispatcherServlet (that uses
-  OpenEntityManagerInViewInterceptor to implement the session-per-request pattern)
+- Lazy loading of JPA relations is not supported by default since the DispatcherServlet
+  (that uses OpenEntityManagerInViewInterceptor to implement the session-per-request pattern)
   of Spring is not used by GraphQL Java, see https://stackoverflow.com/questions/48037601/lazyinitializationexception-with-graphql-spring
   for alternatives
 
 ## Next steps
 
 Not yet implemented:
-- Support lazy relations
-- Support enumeration
+- Enumeration support

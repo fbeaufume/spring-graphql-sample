@@ -1,8 +1,8 @@
 spring:
   h2.console.enabled: true
   jpa:
-    # Enabled to remove one warn from the logs, but actually not used by GraphQL Java
-    open-in-view: true
+    # Disabled since a filter is declared programmatically
+    open-in-view: false
     show-sql: true
 
 graphql:
@@ -18,7 +18,4 @@ graphql:
 logging.level:
   ROOT: INFO
 #  org.springframework: DEBUG
-#  org.springframework.orm.jpa.support: TRACE
-#  org.hibernate: TRACE
-#  org.hibernate.internal.SessionImpl: TRACE
-#  org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+#  org.hibernate: DEBUG
