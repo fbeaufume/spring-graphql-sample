@@ -26,7 +26,7 @@ GraphQL features:
 - Automated tests of queries and mutations
 - A Postman configuration file in `postman`
 
-No external database is requires as the application uses an embedded in-memory H2 database.
+No external database is required as the application uses an embedded in-memory H2 database.
 
 The business data are in `src/main/resources/data.sql`.
 

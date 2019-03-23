@@ -56,12 +56,15 @@ public class GraphQLApplicationTest {
     @Test
     public void getBooksByGet() {
         given()//.log().all()
-                .queryParam("query", "{ books { id title } }")
+                .queryParam("query", "{ books { id title isbn language } }")
                 .get("/graphql")
                 .then()
                 .assertThat()
                 .body("data.books.size()", equalTo(3))
-                .body("data.books[0].title", equalTo("Carrie"));
+                .body("data.books[0].id", equalTo("1001"))
+                .body("data.books[0].title", equalTo("Carrie"))
+                .body("data.books[0].isbn", equalTo("0385086954"))
+                .body("data.books[0].language", equalTo("EN"));
     }
 
     /**
@@ -71,12 +74,17 @@ public class GraphQLApplicationTest {
     @Test
     public void getBooksByPost() {
         given()//.log().all()
-                .body("{ \"query\": \"{ books { id title } }\" }")
+                .body("{ \"query\": \"{ books(page:1, size:2) { id title editor { id name address { id street city country } } } }\" }")
                 .post("/graphql")
                 .then()
                 .assertThat()
-                .body("data.books.size()", equalTo(3))
-                .body("data.books[0].title", equalTo("Carrie"));
+                .body("data.books.size()", equalTo(2))
+                .body("data.books[0].id", equalTo("1003"))
+                .body("data.books[0].title", equalTo("Dreamcatcher"))
+                .body("data.books[0].editor.id", equalTo("3002"))
+                .body("data.books[0].editor.name", equalTo("Scribner"))
+                .body("data.books[0].editor.address.id", equalTo("4002"))
+                .body("data.books[0].editor.address.street", equalTo("1230 Avenue of the Americas"));
     }
 
     /**
