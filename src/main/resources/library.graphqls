@@ -15,10 +15,15 @@ type Author {
     books: [Book]
 }
 
+enum Language {
+  EN
+  FR
+}
+
 type Book {
     id: ID!
     title: String!
-    language: String!
+    language: Language!
     isbn: String!
     date: Date!,
     authors: [Author]!
@@ -36,7 +41,7 @@ type Query {
     authors: [Author]
 
     books(page: Int = 0, size: Int = 3): [Book]
-    booksByLanguage(language: String): [Book]
+    booksByLanguage(language: Language): [Book]
 
     editors: [Editor]
 }
@@ -44,5 +49,5 @@ type Query {
 type Mutation {
     createAuthor(firstName: String!, lastName: String!): Author
 
-    updateBook(id: ID!, title: String!): Boolean
+    updateBook(id: ID!, title: String!, language: Language!): Boolean
 }

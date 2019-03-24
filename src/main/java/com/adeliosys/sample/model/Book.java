@@ -12,7 +12,8 @@ public class Book {
 
     private String title;
 
-    private String language;
+    @Enumerated(EnumType.STRING)
+    private Language language;
 
     private String isbn;
 
@@ -40,11 +41,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 

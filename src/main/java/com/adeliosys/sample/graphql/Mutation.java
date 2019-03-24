@@ -1,6 +1,7 @@
 package com.adeliosys.sample.graphql;
 
 import com.adeliosys.sample.model.Author;
+import com.adeliosys.sample.model.Language;
 import com.adeliosys.sample.repository.AuthorRepository;
 import com.adeliosys.sample.repository.BookRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
@@ -27,11 +28,12 @@ public class Mutation implements GraphQLMutationResolver {
         return authorRepository.save(new Author(id, firstName, lastName));
     }
 
-    public boolean updateBook(Long id, String title) {
+    public boolean updateBook(Long id, String title, Language language) {
         LOGGER.info("Executing 'updateBook'");
         return bookRepository.findById(id)
                 .map(b -> {
                     b.setTitle(title);
+                    b.setLanguage(language);
                     bookRepository.save(b);
                     return b;
                 })

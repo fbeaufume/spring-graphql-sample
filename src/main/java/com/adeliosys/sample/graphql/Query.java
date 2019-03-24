@@ -3,6 +3,7 @@ package com.adeliosys.sample.graphql;
 import com.adeliosys.sample.model.Author;
 import com.adeliosys.sample.model.Book;
 import com.adeliosys.sample.model.Editor;
+import com.adeliosys.sample.model.Language;
 import com.adeliosys.sample.repository.AuthorRepository;
 import com.adeliosys.sample.repository.BookRepository;
 import com.adeliosys.sample.repository.EditorRepository;
@@ -42,7 +43,7 @@ public class Query implements GraphQLQueryResolver {
         return bookRepository.findAll(PageRequest.of(page, size));
     }
 
-    public List<Book> getBooksByLanguage(String language) {
+    public List<Book> getBooksByLanguage(Language language) {
         LOGGER.info("Executing 'getBooksByLanguage'");
         return bookRepository.findByLanguage(language);
     }

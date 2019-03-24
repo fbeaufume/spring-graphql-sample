@@ -21,6 +21,7 @@ GraphQL features:
 - Queries with or without parameters and default values
 - Mutations
 - Dates support
+- Enumeration support
 - JPA relations lazy loading support
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
 - Automated tests of queries and mutations
@@ -84,7 +85,7 @@ mutation {
 
 ```
 mutation {
-  updateBook(id: 1001, title: "Some title")
+  updateBook(id: 1001, title: "Some title", language: EN)
 }
 ```
 
@@ -103,8 +104,3 @@ Summary of issues met during development:
   (that uses OpenEntityManagerInViewInterceptor to implement the session-per-request pattern)
   of Spring is not used by GraphQL Java, see https://stackoverflow.com/questions/48037601/lazyinitializationexception-with-graphql-spring
   for alternatives
-
-## Next steps
-
-Not yet implemented:
-- Enumeration support
