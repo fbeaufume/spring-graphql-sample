@@ -59,8 +59,9 @@ Sample GraphQL queries and mutations (can be copy/pasted in GraphiQL):
   books(page:0, size:3) {
     id
     title
-    isbn
     language
+    isbn
+    date
     editor {
       id
       name
@@ -104,3 +105,10 @@ Summary of issues met during development:
   (that uses OpenEntityManagerInViewInterceptor to implement the session-per-request pattern)
   of Spring is not used by GraphQL Java, see https://stackoverflow.com/questions/48037601/lazyinitializationexception-with-graphql-spring
   for alternatives
+
+## Next steps
+
+Not yet implemented:
+- Fine-grained security
+- Custom error management
+- Notifications support

@@ -25,7 +25,7 @@ type Book {
     title: String!
     language: Language!
     isbn: String!
-    date: Date!,
+    date: Date!
     authors: [Author]!
     editor: Editor!
 }
