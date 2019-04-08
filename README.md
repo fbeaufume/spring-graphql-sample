@@ -1,5 +1,7 @@
 # Spring GraphQL Sample
 
+![GraphQL and Spring Boot](doc/graphql-spring-boot.png)
+
 This is a sample GraphQL backend based on Spring Boot, GraphQL Java (the core GraphQL library
 in Java) and GraphQL Java Kickstart (provides Spring Boot integration of GraphQL Java).
 
