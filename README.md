@@ -92,9 +92,9 @@ mutation {
 }
 ```
 
-## Issues
+## Challenges
 
-Summary of issues met during development:
+Summary of issues met during development and the chosen solution:
 - Dates are not directly supported by GraphQL, some coding or third party lib is required
 - Upgrading from GraphQL Java Kickstart 5.0.2 to 5.7.0 was more complex than expected
   (different groupId, Maven Central vs JCenter confusion, GraphQL Java Tools not explicitly needed anymore)
