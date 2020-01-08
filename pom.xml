@@ -58,6 +58,13 @@
             <version>${graphql-starter.version}</version>
         </dependency>
 
+        <!-- Voyager, an interactive GraphQL graph -->
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>voyager-spring-boot-starter</artifactId>
+            <version>${graphql-starter.version}</version>
+        </dependency>
+
         <!-- GraphQL date support, see https://github.com/donbeave/graphql-java-datetime -->
         <dependency>
             <groupId>com.zhokhov.graphql</groupId>

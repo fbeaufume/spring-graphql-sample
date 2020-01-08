@@ -3,7 +3,7 @@
 ![GraphQL and Spring Boot](doc/graphql-spring-boot.png)
 
 This is a sample GraphQL backend based on Spring Boot, GraphQL Java (the core GraphQL library
-in Java) and GraphQL Java Kickstart (provides Spring Boot integration of GraphQL Java).
+in Java) and GraphQL Java Kickstart (provides Spring Boot integration for GraphQL Java).
 
 For GraphQL see https://graphql.org/.
 
@@ -19,14 +19,15 @@ Uses a simple library oriented domain model:
 ![Application domain model](doc/domain-model.png)
 
 GraphQL features:
-- A single GraphQL schema in `src/main/resources/library.graphqls`
+- A single GraphQL schema in `src/main/resources/application.graphqls`
 - Queries with or without parameters and default values
 - Mutations
 - Dates support
 - Enumeration support
 - JPA relations lazy loading support
 - The application embeds GraphiQL, a GraphQL client UI, for easy querying
-- Automated tests of queries and mutations
+- The application embeds Voyager, an interactive graph for GraphQL
+- Some automated tests of queries and mutations
 - A Postman configuration file in `postman`
 
 No external database is required as the application uses an embedded in-memory H2 database.
@@ -43,6 +44,7 @@ Useful URL:
 - http://localhost:8080/graphql/schema.json the GraphQL schema of the application
 - http://localhost:8080/graphql?query=%7Bbooks%7Bid%20title%7D%7D a sample GraphQL query
 - http://localhost:8080/graphiql the GraphiQL client UI
+- http://localhost:8080/voyage the Voyager client UI
 - http://localhost:8080/h2-console/ the H2 web console
 
 Sample GraphQL queries and mutations (can be copy/pasted in GraphiQL):
