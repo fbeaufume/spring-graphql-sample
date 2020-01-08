@@ -1,19 +1,10 @@
 spring:
+  main.banner-mode: "off"
   h2.console.enabled: true
   jpa:
     # Disabled since a filter is declared programmatically
     open-in-view: false
     show-sql: true
-
-graphql:
-  servlet:
-    websocket:
-      # Probably disables GraphQL notifications but used to prevent this test execution error:
-      #  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'serverEndpointExporter'
-      #  defined in class path resource [com/oembedler/moon/graphql/boot/GraphQLWebsocketAutoConfiguration.class]: Invocation of init method failed;
-      #  nested exception is java.lang.IllegalStateException: javax.websocket.server.ServerContainer not available
-      # See also https://github.com/graphql-java-kickstart/graphql-spring-boot/issues/113
-      enabled: false
 
 logging.level:
   ROOT: INFO
