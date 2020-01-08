@@ -1,5 +1,6 @@
 scalar Date
 
+"Address of an author or editor"
 type Address {
     id: ID!
     street: String
@@ -7,6 +8,7 @@ type Address {
     country: String
 }
 
+"Author of a book"
 type Author {
     id: ID!
     firstName: String!
@@ -20,6 +22,7 @@ enum Language {
   FR
 }
 
+"A book"
 type Book {
     id: ID!
     title: String!
@@ -30,6 +33,7 @@ type Book {
     editor: Editor!
 }
 
+"Editor of a book"
 type Editor {
     id: ID!
     name: String!
