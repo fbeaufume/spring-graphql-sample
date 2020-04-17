@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    @Query("select max(a.id) from Author a")
+    @Query("SELECT MAX(a.id) FROM Author a")
     int getMaxId();
 }
