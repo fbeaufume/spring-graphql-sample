@@ -7,7 +7,7 @@ import com.adeliosys.sample.model.Language;
 import com.adeliosys.sample.repository.AuthorRepository;
 import com.adeliosys.sample.repository.BookRepository;
 import com.adeliosys.sample.repository.EditorRepository;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

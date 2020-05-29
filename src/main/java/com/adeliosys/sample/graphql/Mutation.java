@@ -4,7 +4,7 @@ import com.adeliosys.sample.model.Author;
 import com.adeliosys.sample.model.Language;
 import com.adeliosys.sample.repository.AuthorRepository;
 import com.adeliosys.sample.repository.BookRepository;
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
